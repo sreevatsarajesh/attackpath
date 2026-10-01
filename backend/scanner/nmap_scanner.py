@@ -14,4 +14,5 @@ for host in root.findall("host"):
     address = host.find("address")
     if address is None:
         continue
-    ip = 
+    ip = address.get("addr")
+    ports = []
