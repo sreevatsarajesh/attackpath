@@ -5,5 +5,6 @@ def scan(target):
     result = subprocess.run(
         ["nmap","-sV","-oX","-",target],
         capture_output = True,
-        text = "True",
+        text = True,
+        check =True
     )
