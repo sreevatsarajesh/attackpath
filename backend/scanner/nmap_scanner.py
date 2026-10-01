@@ -16,3 +16,4 @@ for host in root.findall("host"):
         continue
     ip = address.get("addr")
     ports = []
+    ports_elements = host.find("ports")
