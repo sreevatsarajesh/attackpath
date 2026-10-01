@@ -9,3 +9,4 @@ def scan(target):
         check =True
     )
 root = ET.fromstring(result.stdout)
+h
