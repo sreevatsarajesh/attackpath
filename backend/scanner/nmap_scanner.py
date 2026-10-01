@@ -8,3 +8,4 @@ def scan(target):
         text = True,
         check =True
     )
+root = ET.fromstring(result.stdout)
