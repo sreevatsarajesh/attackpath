@@ -12,7 +12,6 @@ def root():
 @app.post("/scan")
 def run_scan(target: str):
     results = scan(target)
-
     connection = get_connection()
     cursor = connection.cursor()
     cursor.execute(
