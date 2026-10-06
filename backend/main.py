@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from scanner.nmap_scanner import scan
-
 app = FastAPI(title="AttackPath API")
 
 
