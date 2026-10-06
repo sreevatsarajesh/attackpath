@@ -32,5 +32,4 @@ def scan(target):
             "ip": ip,
             "ports": ports
         })
-
     return hosts
