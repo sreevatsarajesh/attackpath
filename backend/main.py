@@ -49,3 +49,27 @@ def run_scan(target: str):
         "target": target,
         "results": results
     }
+@app.get("/assets")
+def get_assets():
+    connection = get_connection()
+    connection.row_factory = __import__("sqlite3").Row
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT
+            hosts.id,
+            hosts.ip,
+            scans.target,
+            scans.created_at
+        FROM hosts
+        JOIN scans ON hosts.scan_id = scans.id
+        ORDER BY scans.created_at DESC
+    """)
+
+    assets = [dict(row) for row in cursor.fetchall()]
+
+    connection.close()
+
+    return {
+        "assets": assets
+    }
