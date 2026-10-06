@@ -7,7 +7,6 @@ def root():
         "message": "AttackPath API is running"
     }
 
-
 @app.post("/scan")
 def run_scan(target: str):
     return {
