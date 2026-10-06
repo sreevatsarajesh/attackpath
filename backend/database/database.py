@@ -13,7 +13,6 @@ def initialize_database():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
-
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS hosts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
