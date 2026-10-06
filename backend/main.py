@@ -90,7 +90,6 @@ def get_services(asset_id: int):
     """, (asset_id,))
 
     services = [dict(row) for row in cursor.fetchall()]
-
     connection.close()
     return {
         "asset_id": asset_id,
