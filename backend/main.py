@@ -3,7 +3,6 @@ from scanner.nmap_scanner import scan
 
 app = FastAPI(title="AttackPath API")
 
-
 @app.get("/")
 def root():
     return {
