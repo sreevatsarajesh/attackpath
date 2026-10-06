@@ -54,7 +54,6 @@ def get_assets():
     connection = get_connection()
     connection.row_factory = __import__("sqlite3").Row
     cursor = connection.cursor()
-
     cursor.execute("""
         SELECT
             hosts.id,
