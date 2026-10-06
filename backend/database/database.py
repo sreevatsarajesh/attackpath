@@ -21,7 +21,6 @@ def initialize_database():
             FOREIGN KEY (scan_id) REFERENCES scans(id)
         )
     """)
-
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS ports (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
