@@ -67,7 +67,6 @@ def get_assets():
     """)
 
     assets = [dict(row) for row in cursor.fetchall()]
-
     connection.close()
     return {
         "assets": assets
