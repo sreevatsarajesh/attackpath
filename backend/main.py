@@ -51,7 +51,6 @@ def run_scan(target: str):
 
     connection.commit()
     connection.close()
-
     return {
         "scan_id": scan_id,
         "target": target,
