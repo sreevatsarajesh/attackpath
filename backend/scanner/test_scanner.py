@@ -1,0 +1,1 @@
+from nmap_scanner import scan
