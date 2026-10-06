@@ -1,7 +1,6 @@
 import sqlite3
 DATABASE = "attackpath.db"
 
-
 def get_connection():
     return sqlite3.connect(DATABASE)
 
