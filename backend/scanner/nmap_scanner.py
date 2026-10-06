@@ -14,6 +14,6 @@ def scan(target):
         address = host.find("address")
         if address is None:
             continue
-    ip = address.get("addr")
+        ip = address.get("addr")
     ports = []
     ports_elements = host.find("ports")
