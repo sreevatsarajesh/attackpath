@@ -6,3 +6,20 @@ env/
 
 .env
 *.env
+
+.DS_Store
+
+.vscode/
+
+*.log
+
+*.db
+*.sqlite
+*.sqlite3
+
+node_modules/
+dist/
+build/
+
+.pytest_cache/
+.mypy_cache/
