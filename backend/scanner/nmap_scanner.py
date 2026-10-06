@@ -20,7 +20,6 @@ def scan(target):
             for port in ports_element.findall("port"):
                 state = port.find("state")
                 service = port.find("service")
-
                 ports.append({
                     "port": int(port.get("portid")),
                     "protocol": port.get("protocol"),
