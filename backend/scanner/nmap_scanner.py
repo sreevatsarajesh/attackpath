@@ -28,7 +28,6 @@ def scan(target):
                     "product": service.get("product") if service is not None else None,
                     "version": service.get("version") if service is not None else None
                 })
-
         hosts.append({
             "ip": ip,
             "ports": ports
