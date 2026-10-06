@@ -28,7 +28,6 @@ def run_scan(target: str):
             "INSERT INTO hosts (scan_id, ip) VALUES (?, ?)",
             (scan_id, host["ip"])
         )
-
         host_id = cursor.lastrowid
 
         for port in host["ports"]:
