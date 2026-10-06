@@ -34,6 +34,5 @@ def initialize_database():
             FOREIGN KEY (host_id) REFERENCES hosts(id)
         )
     """)
-
     connection.commit()
     connection.close()
