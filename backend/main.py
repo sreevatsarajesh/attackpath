@@ -15,7 +15,6 @@ def run_scan(target: str):
 
     connection = get_connection()
     cursor = connection.cursor()
-
     cursor.execute(
         "INSERT INTO scans (target) VALUES (?)",
         (target,)
