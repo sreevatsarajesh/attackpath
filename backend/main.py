@@ -48,7 +48,6 @@ def run_scan(target: str):
                     port["version"]
                 )
             )
-
     connection.commit()
     connection.close()
     return {
