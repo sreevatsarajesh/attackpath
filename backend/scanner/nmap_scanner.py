@@ -9,7 +9,6 @@ def scan(target):
     )
     root = ET.fromstring(result.stdout)
     hosts = []
-
     for host in root.findall("host"):
         address = host.find("address")
 
