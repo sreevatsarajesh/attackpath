@@ -65,7 +65,6 @@ def get_assets():
         JOIN scans ON hosts.scan_id = scans.id
         ORDER BY scans.created_at DESC
     """)
-
     assets = [dict(row) for row in cursor.fetchall()]
     connection.close()
     return {
