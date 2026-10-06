@@ -22,7 +22,6 @@ def run_scan(target: str):
     )
 
     scan_id = cursor.lastrowid
-
     for host in results:
         cursor.execute(
             "INSERT INTO hosts (scan_id, ip) VALUES (?, ?)",
