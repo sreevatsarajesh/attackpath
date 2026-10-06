@@ -20,7 +20,6 @@ def run_scan(target: str):
         "INSERT INTO scans (target) VALUES (?)",
         (target,)
     )
-
     scan_id = cursor.lastrowid
     for host in results:
         cursor.execute(
