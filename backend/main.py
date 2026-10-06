@@ -25,7 +25,6 @@ def run_scan(target: str):
             (scan_id, host["ip"])
         )
         host_id = cursor.lastrowid
-
         for port in host["ports"]:
             cursor.execute(
                 """
