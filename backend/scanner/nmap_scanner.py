@@ -16,4 +16,4 @@ def scan(target):
             continue
         ip = address.get("addr")
         ports = []
-    ports_elements = host.find("ports")
+        ports_elements = host.find("ports")
