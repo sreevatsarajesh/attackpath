@@ -16,7 +16,6 @@ def scan(target):
         ip = address.get("addr")
         ports = []
         ports_element = host.find("ports")
-
         if ports_element is not None:
             for port in ports_element.findall("port"):
                 state = port.find("state")
