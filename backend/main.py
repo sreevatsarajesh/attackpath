@@ -88,7 +88,6 @@ def get_services(asset_id: int):
         JOIN hosts ON ports.host_id = hosts.id
         WHERE hosts.id = ?
     """, (asset_id,))
-
     services = [dict(row) for row in cursor.fetchall()]
     connection.close()
     return {
