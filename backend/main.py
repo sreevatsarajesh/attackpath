@@ -69,3 +69,31 @@ def get_assets():
     return {
         "assets": assets
     }
+@app.get("/assets/{asset_id}/services")
+def get_services(asset_id: int):
+    connection = get_connection()
+    connection.row_factory = __import__("sqlite3").Row
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT
+            ports.id,
+            ports.port,
+            ports.protocol,
+            ports.state,
+            ports.service,
+            ports.product,
+            ports.version
+        FROM ports
+        JOIN hosts ON ports.host_id = hosts.id
+        WHERE hosts.id = ?
+    """, (asset_id,))
+
+    services = [dict(row) for row in cursor.fetchall()]
+
+    connection.close()
+
+    return {
+        "asset_id": asset_id,
+        "services": services
+    }
