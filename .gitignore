@@ -8,7 +8,6 @@ env/
 *.env
 
 .DS_Store
-
 .vscode/
 *.log
 *.db
