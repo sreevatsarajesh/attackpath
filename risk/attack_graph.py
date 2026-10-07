@@ -28,7 +28,6 @@ def build_graph():
         "attacker",
         "attacker"
     )
-
     connection = get_connection()
     connection.row_factory = __import__("sqlite3").Row
     cursor = connection.cursor()
