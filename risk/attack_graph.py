@@ -24,7 +24,6 @@ class AttackGraph:
 
 def build_graph():
     graph = AttackGraph()
-
     graph.add_node(
         "attacker",
         "attacker"
