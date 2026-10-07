@@ -8,9 +8,25 @@ graph.add_node[
     "host_1",
     "host",
     {
-        "ip" :"127.0.0.1"
+        "ip" :"localhost"
     }
 ]
 graph.add_node[
-
+    "service_1",
+    "service",
+    {
+        "port":"3306"
+        "protocol":"tcp"
+        "service":"sqlite"
+    }
+]
+graph.add_edge[
+    "attacker",
+    "host_1"
+    "canreach"
+]
+graph.add_edge[
+    "host_1",
+    "service_1",
+    "runs"
 ]
