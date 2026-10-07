@@ -14,7 +14,6 @@ class AttackGraph:
             "target": target,
             "relationship": relationship
         })
-
     def to_dict(self):
         return {
             "nodes": self.nodes,
