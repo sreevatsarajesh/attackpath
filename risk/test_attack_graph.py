@@ -30,3 +30,4 @@ graph.add_edge[
     "service_1",
     "runs"
 ]
+print(graph.to_dict()) 
