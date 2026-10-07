@@ -8,7 +8,6 @@ class AttackGraph:
             "type": node_type,
             "data": data or {}
         })
-
     def add_edge(self, source, target, relationship):
         self.edges.append({
             "source": source,
