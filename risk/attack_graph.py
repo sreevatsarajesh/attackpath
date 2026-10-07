@@ -37,12 +37,9 @@ def build_graph():
             hosts.ip
         FROM hosts
     """)
-
     hosts = cursor.fetchall()
-
     for host in hosts:
         host_id = f"host_{host['id']}"
-
         graph.add_node(
             host_id,
             "host",
@@ -50,13 +47,11 @@ def build_graph():
                 "ip": host["ip"]
             }
         )
-
         graph.add_edge(
             "attacker",
             host_id,
             "CAN_REACH"
         )
-
         cursor.execute("""
             SELECT
                 ports.id,
@@ -69,12 +64,9 @@ def build_graph():
             FROM ports
             WHERE host_id = ?
         """, (host["id"],))
-
         ports = cursor.fetchall()
-
         for port in ports:
             service_id = f"service_{port['id']}"
-
             graph.add_node(
                 service_id,
                 "service",
@@ -87,13 +79,10 @@ def build_graph():
                     "version": port["version"]
                 }
             )
-
             graph.add_edge(
                 host_id,
                 service_id,
                 "RUNS"
             )
-
     connection.close()
-
     return graph
