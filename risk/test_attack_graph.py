@@ -1,3 +1,3 @@
 from attack_graph import AttackGraph
 graph = AttackGraph()
-graph.add_
+graph.add_n
