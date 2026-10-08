@@ -117,7 +117,6 @@ def get_vulnerabilities(asset_id: int):
     """, (asset_id,))
     services = cursor.fetchall()
     findings = []
-
     for service in services:
         service_data = dict(service)
         findings.extend(map_service(service_data))
