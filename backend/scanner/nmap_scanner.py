@@ -22,7 +22,6 @@ def scan(target):
                 service = port.find("service")
 
                 cpe = None
-
                 if service is not None:
                     cpe_element = service.find("cpe")
                 if cpe_element is not None:
