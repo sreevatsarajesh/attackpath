@@ -11,7 +11,6 @@ def find_cves_by_cpe(cpe):
         },
         timeout=15
     )
-
     response.raise_for_status()
 
     data = response.json()
