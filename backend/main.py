@@ -121,7 +121,6 @@ def get_vulnerabilities(asset_id: int):
         service_data = dict(service)
         findings.extend(map_service(service_data))
     connection.close()
-
     return {
         "asset_id": asset_id,
         "findings": findings
