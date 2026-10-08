@@ -27,7 +27,6 @@ def scan(target):
                     cpe_element = service.find("cpe")
                 if cpe_element is not None:
                     cpe = cpe_element.text
-
                 ports.append({
                     "port": int(port.get("portid")),
                     "protocol": port.get("protocol"),
