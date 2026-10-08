@@ -20,13 +20,22 @@ def scan(target):
             for port in ports_element.findall("port"):
                 state = port.find("state")
                 service = port.find("service")
+
+                cpe = None
+
+                if service is not None:
+                    cpe_element = service.find("cpe")
+                if cpe_element is not None:
+                    cpe = cpe_element.text
+
                 ports.append({
                     "port": int(port.get("portid")),
                     "protocol": port.get("protocol"),
                     "state": state.get("state") if state is not None else None,
                     "service": service.get("name") if service is not None else None,
                     "product": service.get("product") if service is not None else None,
-                    "version": service.get("version") if service is not None else None
+                    "version": service.get("version") if service is not None else None,
+                    "cpe": cpe
                 })
         hosts.append({
             "ip": ip,
