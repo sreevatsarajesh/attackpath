@@ -95,3 +95,41 @@ def get_services(asset_id: int):
         "asset_id": asset_id,
         "services": services
     }
+from backend.risk.vulnerability_mapper import map_service
+
+
+@app.get("/assets/{asset_id}/vulnerabilities")
+def get_vulnerabilities(asset_id: int):
+    connection = get_connection()
+    connection.row_factory = __import__("sqlite3").Row
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT
+            ports.id,
+            ports.port,
+            ports.protocol,
+            ports.state,
+            ports.service,
+            ports.product,
+            ports.version,
+            ports.cpe
+        FROM ports
+        JOIN hosts ON ports.host_id = hosts.id
+        WHERE hosts.id = ?
+    """, (asset_id,))
+
+    services = cursor.fetchall()
+
+    findings = []
+
+    for service in services:
+        service_data = dict(service)
+        findings.extend(map_service(service_data))
+
+    connection.close()
+
+    return {
+        "asset_id": asset_id,
+        "findings": findings
+    }
