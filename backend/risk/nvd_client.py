@@ -1,7 +1,6 @@
 import requests
 NVD_CVE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
-
 def find_cves_by_cpe(cpe):
     if not cpe:
         return []
