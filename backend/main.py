@@ -97,7 +97,6 @@ def get_services(asset_id: int):
     }
 from backend.risk.vulnerability_mapper import map_service
 
-
 @app.get("/assets/{asset_id}/vulnerabilities")
 def get_vulnerabilities(asset_id: int):
     connection = get_connection()
