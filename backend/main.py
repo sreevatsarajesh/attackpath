@@ -120,7 +120,6 @@ def get_vulnerabilities(asset_id: int):
     for service in services:
         service_data = dict(service)
         findings.extend(map_service(service_data))
-
     connection.close()
 
     return {
