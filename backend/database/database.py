@@ -31,6 +31,7 @@ def initialize_database():
             service TEXT,
             product TEXT,
             version TEXT,
+            cpe TEXT,
             FOREIGN KEY (host_id) REFERENCES hosts(id)
         )
     """)
