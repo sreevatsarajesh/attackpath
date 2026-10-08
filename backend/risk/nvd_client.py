@@ -13,5 +13,4 @@ def find_cves_by_cpe(cpe):
     )
     response.raise_for_status()
     data = response.json()
-
     return data.get("vulnerabilities", [])
