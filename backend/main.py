@@ -83,7 +83,8 @@ def get_services(asset_id: int):
             ports.state,
             ports.service,
             ports.product,
-            ports.version
+            ports.version,
+            ports.cpe
         FROM ports
         JOIN hosts ON ports.host_id = hosts.id
         WHERE hosts.id = ?
