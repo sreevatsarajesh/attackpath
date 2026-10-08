@@ -116,7 +116,6 @@ def get_vulnerabilities(asset_id: int):
         WHERE hosts.id = ?
     """, (asset_id,))
     services = cursor.fetchall()
-
     findings = []
 
     for service in services:
