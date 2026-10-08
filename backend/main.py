@@ -39,7 +39,8 @@ def run_scan(target: str):
                     port["state"],
                     port["service"],
                     port["product"],
-                    port["version"]
+                    port["version"],
+                    port["cpe"]
                 )
             )
     connection.commit()
