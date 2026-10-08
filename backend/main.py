@@ -115,7 +115,6 @@ def get_vulnerabilities(asset_id: int):
         JOIN hosts ON ports.host_id = hosts.id
         WHERE hosts.id = ?
     """, (asset_id,))
-
     services = cursor.fetchall()
 
     findings = []
