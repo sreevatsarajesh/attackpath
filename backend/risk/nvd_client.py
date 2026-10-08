@@ -1,5 +1,4 @@
 import requests
-
 NVD_CVE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
 
