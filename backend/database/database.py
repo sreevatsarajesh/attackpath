@@ -34,5 +34,16 @@ def initialize_database():
             FOREIGN KEY (host_id) REFERENCES hosts(id)
         )
     """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS vulnerabilities (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            port_id INTEGER NOT NULL,
+            cve TEXT,
+            severity TEXT,
+            cvss REAL,
+            description TEXT,
+            FOREIGN KEY (port_id) REFERENCES ports(id)
+        )
+    """)
     connection.commit()
     connection.close()
