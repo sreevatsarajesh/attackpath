@@ -20,7 +20,6 @@ def scan(target):
             for port in ports_element.findall("port"):
                 state = port.find("state")
                 service = port.find("service")
-
                 cpe = None
                 if service is not None:
                     cpe_element = service.find("cpe")
