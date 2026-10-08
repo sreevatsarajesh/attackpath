@@ -2,7 +2,7 @@ import subprocess
 import xml.etree.ElementTree as ET
 def scan(target):
     result = subprocess.run(
-        ["nmap", "-sV","--versio" "-oX", "-", target],
+        ["nmap", "-sV","--version" "-oX", "-", target],
         capture_output=True,
         text=True,
         check=True
