@@ -51,8 +51,9 @@ function App() {
   const [search, setSearch] = useState('')
   const [target, setTarget] = useState('127.0.0.1')
   const [scanning, setScanning] = useState(false)
-  const [assets, setAssets] = useState(initialAssets)
+  const [assets, setAssets] = useState([])
   const [notice, setNotice] = useState('')
+  const [apiStatus, setApiStatus] = useState('Checking')
 
   const filteredAssets = assets.filter((asset) =>
     `${asset.ip} ${asset.name} ${asset.os}`.toLowerCase().includes(search.toLowerCase())
