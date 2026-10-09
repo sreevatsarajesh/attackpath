@@ -54,6 +54,68 @@ function App() {
   const [assets, setAssets] = useState([])
   const [notice, setNotice] = useState('')
   const [apiStatus, setApiStatus] = useState('Checking')
+  async function refreshData() {
+  try {
+    const healthResponse = await fetch('http://127.0.0.1:8000/')
+
+    if (!healthResponse.ok) {
+      throw new Error('Backend is unavailable')
+    }
+
+    const assetResponse = await fetch('http://127.0.0.1:8000/assets')
+
+    if (!assetResponse.ok) {
+      throw new Error('Could not retrieve assets')
+    }
+
+    const assetData = await assetResponse.json()
+    const rows = Array.isArray(assetData.assets) ? assetData.assets : []
+
+    const updatedAssets = await Promise.all(
+      rows.map(async (asset) => {
+        let services = 0
+
+        if (asset.id != null) {
+          try {
+            const response = await fetch(
+              `http://127.0.0.1:8000/assets/${asset.id}/services`
+            )
+
+            if (response.ok) {
+              const data = await response.json()
+              const serviceRows = Array.isArray(data)
+                ? data
+                : data.services || []
+
+              services = serviceRows.length
+            }
+          } catch {
+            services = 0
+          }
+        }
+
+        return {
+          ip: asset.ip || 'Unknown',
+          name: asset.hostname || asset.ip || `Asset ${asset.id}`,
+          os: asset.os || 'Not identified',
+          services,
+          status: 'Discovered',
+          risk: 'Unassessed',
+        }
+      })
+    )
+
+    setAssets(updatedAssets)
+    setApiStatus('Online')
+  } catch {
+    setApiStatus('Offline')
+    setAssets([])
+  }
+}
+
+useEffect(() => {
+  refreshData()
+}, [])
 
   const filteredAssets = assets.filter((asset) =>
     `${asset.ip} ${asset.name} ${asset.os}`.toLowerCase().includes(search.toLowerCase())
