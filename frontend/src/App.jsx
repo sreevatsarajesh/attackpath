@@ -32,13 +32,6 @@ import {
   Zap,
 } from 'lucide-react'
 import './App.css'
-
-const initialAssets = [
-  { ip: '127.0.0.1', name: 'Localhost', os: 'Local environment', services: 4, status: 'Monitored', risk: 'Review' },
-  { ip: '192.168.1.1', name: 'Gateway', os: 'Network device', services: 0, status: 'Discovered', risk: 'Unknown' },
-  { ip: '192.168.1.10', name: 'Development host', os: 'Linux / macOS', services: 3, status: 'Monitored', risk: 'Review' },
-]
-
 const navigation = [
   { section: 'WORKSPACE', items: [
     { name: 'Overview', icon: LayoutDashboard },
