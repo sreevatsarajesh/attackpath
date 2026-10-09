@@ -4,6 +4,13 @@ from backend.database.database import initialize_database
 from backend.database.database import get_connection
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title="AttackPath API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 initialize_database()
 @app.get("/")
 def root():
